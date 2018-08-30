@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: dpm-unity
+  cloud:
+    config:
+      uri: http://localhost:8769
+      fail-fast: false
+  profiles:
+    active: dev

@@ -1,0 +1,56 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: dpm-zuul
+  http:
+    multipart:
+      max-file-size: 2000Mb
+      max-request-size: 2000Mb
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+      
+#feign:
+#  hystrix:
+#    enabled: true
+ribbon:
+  ReadTimeout: 180000
+  ConnectTimeout: 180000
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 2
+  MaxAutoRetries: 0
+hystrix:
+    command:
+        default:
+            execution:
+                timeout:
+                    enabled: false
+                isolation:
+                    thread:
+                        timeout-in-milliseconds: 3000000
+                        interruptOnTimeout: false
+    metrics:
+      enabled: true
+      polling-interval-ms: 200000
+
+zuul:
+  retryable: false
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+  routes:
+    dpm-web:
+      path: /dpm-web/**
+      serviceId: dpm-web
+    dpm-unity:
+      path: /dpm-unity/**
+      serviceId: dpm-unity
+
+server:
+  port: 7777

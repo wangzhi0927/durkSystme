@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="generator" content="Aspose.Words for .NET 15.1.0.0" />
+    <title></title>
+    <style>
+         .checkbox {
+             width: 20px;
+             height: 20px;
+             border-style: solid;
+             border-width: 3px;
+             background-color:white;
+         }
+         .inputTxt{
+             border-style: solid;
+             border-width: 0px;
+             border-bottom-width: 1px;
+         }
+         input:focus {
+            outline: none;
+ 
+        }
+        .input1{
+            border:none; 
+            text-indent:0px;
+            line-height:20px;
+            background:url(linebg.gif) repeat;
+            overflow:auto;
+            resize: none;
+            
+        }
+        .input1:focus {
+            outline: none;
+ 
+        }
+        .container{
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        function submitForm() {
+        	document.getElementById("formTepmalet").submit();
+        }
+        /*]]>*/
+    </script>
+</head>
+
+<body  id="main" style="background-color:white;">
+<form id="formTepmalet" action="#" th:action="@{/dpm-unity/template/submitTemplates}" method="post" th:object="${TemplateA}">
+    <div class="container">
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt; font-weight:bold">疾病介绍和治疗建议</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt; font-weight:bold">   </span>
+            <span style="font-family:宋体; font-size:10.5pt"> </span>
+            <span style="font-family:宋体; font-size:10.5pt">医生已告知我患有</span>
+            <span style="font-family:'Times New Roman'; font-size:10.5pt"><input id="a" name="diseaseName" type="text" class="inputTxt" value=""/></span>
+            <span style="font-family:宋体; font-size:10.5pt">，</span>
+            <span style="font-family:宋体; font-size:10.5pt">由于病情需要</span>
+            <span style="font-family:宋体; font-size:10.5pt">，</span>
+            <span style="font-family:宋体; font-size:10.5pt">经医疗组建议，</span>
+            <span style="font-family:宋体; font-size:10.5pt">需要在</span>
+            <span style="font-family:'Times New Roman'; font-size:10.5pt"><input id="b" name="hocusType" type="text" class="inputTxt"/></span>
+            <span style="font-family:宋体; font-size:10.5pt">麻醉下</span>
+            <span style="font-family:宋体; font-size:10.5pt">实施</span>
+            <span style="font-family:'Times New Roman'; font-size:10.5pt"><input id="c" name="treateName" type="text" class="inputTxt"/></span>
+            <span style="font-family:宋体; font-size:10.5pt">治疗</span>
+            <span style="font-family:宋体; font-size:10.5pt">。</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt; font-weight:bold">手术目的</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt"><input type="checkbox" class="checkbox"/>明确诊断</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt"><input type="checkbox" class="checkbox"/>消除病灶</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt"><input type="checkbox" class="checkbox"/>对局部病灶达到根治或控制</span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt"><input type="checkbox" class="checkbox"/>明确恶性疾病（如乳癌）的分期</span>
+        </p>
+        <table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:0pt">
+            <tr>
+                <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:top; width:403.9pt">
+                    <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt; font-weight:bold">手术潜在风险和对策</span>
+                    </p>
+                    <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt; font-weight:normal">医生告知我如下乳腺手术可能发生的一些风险，有些不常见的风险可能没有在此列出，具体的手术式根据不同病人的情况有所不同，医生告诉我可与我的医生讨论有关我手术的具体内容，如果我有特殊的问题可与我的医生讨论。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; text-indent:24pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">1.</span>
+                        <span style="font-family:宋体; font-size:10.5pt">我理解任何手术麻醉都存在风险。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; text-indent:24pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">2.</span>
+                        <span style="font-family:宋体; font-size:10.5pt">我理解任何所用药物都可能产生副作用，包括轻度的恶心、皮疹等症状到严重的过敏性休克，甚至危及生命。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; text-indent:24pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">3.</span>
+                        <span style="font-family:宋体; font-size:10.5pt">我理解此手术可能发生的风险：</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">1)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">心脑血管意外，包括心肌梗死，房室传导阻滞、室速、室颤及心跳骤停等致死性并发症；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">2)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">术中、术后大出血，严重者可致休克，危及生命；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">3)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">术中损伤胸长、胸背神经，血管及邻近器官，引起相应肢体运动障碍、出血及周围脏器损伤，严重者可危及生命；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">4)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">伤口出血、血肿、</span>
+                        <span style="font-family:宋体; font-size:10.5pt">感染、脂肪液化；术中术后出现下肢深静脉血栓、</span>
+                        <span style="font-family:宋体; font-size:10.5pt">脂肪栓塞等，</span>
+                        <span style="font-family:宋体; font-size:10.5pt">导致</span>
+                        <span style="font-family:宋体; font-size:10.5pt">脑及脏器、肢体栓塞、肺栓塞、脑栓塞等，严重者导致昏迷及呼吸衰竭，危及生命；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">5)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">如活检冰冻结果为恶性，需改为全麻下行乳腺癌改良根治术、保乳根治术、前哨淋巴结活检术等；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">6)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">如手术中快速冰冻结果与石蜡切片结果有出入，或冰冻病理难以确诊，以石蜡切片结果为准，可能需要行二次手术；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">7)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">前哨淋巴结活检存在假阴性或无法找到前哨淋巴结可能，需行腋窝清扫术。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">8)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">术后乳腺外形改变，如缺如、不对称等。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">9)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">根治手术创伤大，术后可出现皮瓣坏死、皮下积液、血肿、术后患侧局部感觉或运动功能障碍、患侧上肢水肿，影响功能、手术区域皮肤感觉异常（如麻木、</span>
+                        <span style="font-family:宋体; font-size:10.5pt">疼痛）</span>
+                        <span style="font-family:宋体; font-size:10.5pt">，</span>
+                        <span style="font-family:宋体; font-size:10.5pt">术后静脉血栓形成，引起相应部位水肿，严重者可发生肺栓塞，危及生命；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">10)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">乳腺癌可复发、转移，术后可能需要放、化疗及内分泌、分子靶向治疗等；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">11)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">多脏器功能衰竭包括弥漫性血管内凝血；</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 42pt; orphans:0; text-align:justify; text-indent:-21pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">12)</span>
+                        <span style="font:7.0pt 'Times New Roman'">&#xa0;&#xa0;&#xa0;&#xa0; </span>
+                        <span style="font-family:宋体; font-size:10.5pt">因疾病本身或患者健康的原因，终止手术。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; text-indent:24pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">4.</span>
+                        <span style="font-family:宋体; font-size:10.5pt">我理解如果我患有高血压、心脏病、糖尿病、肝肾功能不全、静脉血栓等疾病或者有吸烟史，以上这些风险可能会加大，或者在术中或术后出现相关的病情加重或心脑血管意外，甚至死亡。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; text-indent:24pt; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt">5.</span>
+                        <span style="font-family:宋体; font-size:10.5pt">我理解术后如果我的体位不当或不遵医嘱，可能影响手术效果。</span>
+                     
+                    </p>
+                
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:top; width:403.9pt">
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt; font-weight:bold">特殊风险或主要的高危因素</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; text-indent:24pt; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">我理解根据我个人的病情，我可能出现以下特殊并发症或风险：</span>
+                    </p>
+                    <textarea name="txt" clos="5" rows="5" maxlength="320" warp="virtual" style="width: 500px"  class="input1"></textarea>
+                    <!-- <p style="font-size:10.5pt; line-height:150%; margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt; text-decoration:none">&#xa0;</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:150%; margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt; text-decoration:none">&#xa0;</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:150%; margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:'Times New Roman'; font-size:10.5pt; text-decoration:none">&#xa0;</span>
+                    </p> -->
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt; font-weight:normal">一旦发生上述风险和意外，医生会采取积极应对措施。</span>
+                    </p>
+                    <p style="font-size:10.5pt; line-height:115%; margin:0pt; orphans:0; text-align:justify; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt; font-weight:bold">患者知情选择</span>
+                    </p>
+                    <ol type="1" style="margin:0pt; padding-left:0pt">
+                        <li style="font-family:'Times New Roman'; font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 33.88pt; orphans:0; padding-left:8.12pt; text-align:justify; text-indent:0pt; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">我的医生已经告知我将要进行的手术方式、此次手术及术后可能发生的并发症和风险、可能存在的其它治疗方法并且解答了我关于此次手术的相关问题。</span>
+                        </li>
+                        <li style="font-family:'Times New Roman'; font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 33.88pt; orphans:0; padding-left:8.12pt; text-align:justify; text-indent:0pt; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">我同意在手术中医生可以根据我的病情对预定的手术方式做出调整。</span>
+                        </li>
+                        <li style="font-family:'Times New Roman'; font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 33.88pt; orphans:0; padding-left:8.12pt; text-align:justify; text-indent:0pt; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">我理解我的手术需要多位医生共同进行。</span>
+                        </li>
+                        <li style="font-family:'Times New Roman'; font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 33.88pt; orphans:0; padding-left:8.12pt; text-align:justify; text-indent:0pt; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">我并未得到手术百分之百成功的许诺。</span>
+                        </li>
+                        <li style="font-family:'Times New Roman'; font-size:10.5pt; line-height:115%; margin:0pt 0pt 0pt 33.88pt; orphans:0; padding-left:8.12pt; text-align:justify; text-indent:0pt; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">我授权医师对手术切除的病变器官、组织或标本进行处置，包括病理学检查、细胞学检查和医疗废物处理等。</span>
+                        </li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+</body>
+</html>

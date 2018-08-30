@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.dpm.resource.common.utils.DictUtil",
+      "name": "resource",
+      "type": "com.dpm.resource.common.utils.DictUtil"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.dpm.resource.common.utils.DictUtil",
+      "name": "resource.systeminfo",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    }
+  ]
+}

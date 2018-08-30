@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/dpm-cloud.iml" filepath="$PROJECT_DIR$/.idea/dpm-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-config/dpm-config.iml" filepath="$PROJECT_DIR$/../dpm-config/dpm-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-db/dpm-db.iml" filepath="$PROJECT_DIR$/../dpm-db/dpm-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-eureka/dpm-eureka.iml" filepath="$PROJECT_DIR$/../dpm-eureka/dpm-eureka.iml" />
+      <module fileurl="file://D:/workSpace/dpm-front/dpm-front.iml" filepath="D:/workSpace/dpm-front/dpm-front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-resource/dpm-resource.iml" filepath="$PROJECT_DIR$/../dpm-resource/dpm-resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-sleuth/dpm-sleuth.iml" filepath="$PROJECT_DIR$/../dpm-sleuth/dpm-sleuth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-unity/dpm-unity.iml" filepath="$PROJECT_DIR$/../dpm-unity/dpm-unity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-web/dpm-web.iml" filepath="$PROJECT_DIR$/../dpm-web/dpm-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dpm-zuul/dpm-zuul.iml" filepath="$PROJECT_DIR$/../dpm-zuul/dpm-zuul.iml" />
+    </modules>
+  </component>
+</project>

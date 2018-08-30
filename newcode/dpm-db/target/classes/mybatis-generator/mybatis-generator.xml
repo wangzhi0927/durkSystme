@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
+            <!-- 修改Example类生成到目标包下 -->
+            <property name="targetPackage" value="com.dpm.db.common.example"/>
+        </plugin>
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://47.96.45.172:3306/dpm_dev"
+                        userId="dpm" password="FUMEIYU!_dpm!_2017!">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="com.dpm.resource.common.enity" targetProject="dpm-db/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="dpm-db/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
+                type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+                type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.dpm.db.common.mapper" targetProject="dpm-db/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--生成对应表及类名-->
+        <!--<table tableName="t_case_info"></table>-->
+        <!--<table tableName="t_dept_info"></table>-->
+        <!--<table tableName="t_dict_detail"></table>-->
+        <!--<table tableName="t_disease_info"></table>-->
+        <!--<table tableName="t_hospital_info"></table>-->
+        <!--<table tableName="t_login_token"></table>-->
+        <!--<table tableName="t_lymph_info"></table>-->
+        <!--<table tableName="t_menu_info"></table>-->
+        <!--<table tableName="t_model_display_param"></table>-->
+        <!--<table tableName="t_organ_info"></table>-->
+        <!--<table tableName="t_patient_info"></table>-->
+        <!--<table tableName="t_patient_talk"></table>-->
+        <!--<table tableName="t_record_info"></table>-->
+        <!--<table tableName="t_role_info"></table>-->
+        <!--<table tableName="t_resource_info"></table>-->
+        <!--<table tableName="t_role_menu"></table>-->
+        <!--<table tableName="t_tnm_info"></table>-->
+        <!--<table tableName="t_user_dept"></table>-->
+        <!--<table tableName="t_user_info"></table>-->
+        <table tableName="t_disease_rel_res"></table>
+    </context>
+</generatorConfiguration>

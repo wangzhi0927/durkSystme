@@ -1,0 +1,6 @@
+com\dpm\zuul\config\SwaggerConfig.class
+com\dpm\zuul\DpmZuulApplication.class
+com\dpm\zuul\config\PreRequestFilter.class
+com\dpm\zuul\config\ZuulCorsConfig.class
+com\dpm\zuul\config\DocumentationConfig.class
+com\dpm\zuul\config\ErrorFilter.class

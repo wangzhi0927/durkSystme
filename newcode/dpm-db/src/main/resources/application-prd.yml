@@ -1,0 +1,8 @@
+#生产环境
+spring:
+  profiles: prd
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.96.45.172:3306/dpm2_0
+    username: dpm
+    password: FUMEIYU!_dpm!_2017!

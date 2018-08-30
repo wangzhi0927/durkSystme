@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dpm.db.common.mapper.TPatientInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dpm.resource.common.enity.TPatientInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HOS_CODE" jdbcType="VARCHAR" property="hosCode" />
+    <result column="PATIENT_ID" jdbcType="VARCHAR" property="patientId" />
+    <result column="PATIENT_NAME" jdbcType="VARCHAR" property="patientName" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="BLOOD_TYPE" jdbcType="VARCHAR" property="bloodType" />
+    <result column="DATE_OF_BIRTH" jdbcType="TIMESTAMP" property="dateOfBirth" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="MARITAL_STATUS" jdbcType="VARCHAR" property="maritalStatus" />
+    <result column="PASTHIS" jdbcType="VARCHAR" property="pasthis" />
+    <result column="ALLERGYHIS" jdbcType="VARCHAR" property="allergyhis" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, HOS_CODE, PATIENT_ID, PATIENT_NAME, SEX, BLOOD_TYPE, DATE_OF_BIRTH, ID_NO, MARITAL_STATUS, 
+    PASTHIS, ALLERGYHIS
+  </sql>
+  <select id="selectByExample" parameterType="com.dpm.db.common.example.TPatientInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_patient_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_patient_info
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_patient_info
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dpm.db.common.example.TPatientInfoExample">
+    delete from t_patient_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dpm.resource.common.enity.TPatientInfo">
+    insert into t_patient_info (ID, HOS_CODE, PATIENT_ID, 
+      PATIENT_NAME, SEX, BLOOD_TYPE, 
+      DATE_OF_BIRTH, ID_NO, MARITAL_STATUS, 
+      PASTHIS, ALLERGYHIS)
+    values (#{id,jdbcType=VARCHAR}, #{hosCode,jdbcType=VARCHAR}, #{patientId,jdbcType=VARCHAR}, 
+      #{patientName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{bloodType,jdbcType=VARCHAR}, 
+      #{dateOfBirth,jdbcType=TIMESTAMP}, #{idNo,jdbcType=VARCHAR}, #{maritalStatus,jdbcType=VARCHAR}, 
+      #{pasthis,jdbcType=VARCHAR}, #{allergyhis,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dpm.resource.common.enity.TPatientInfo">
+    insert into t_patient_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="hosCode != null">
+        HOS_CODE,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="patientName != null">
+        PATIENT_NAME,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="bloodType != null">
+        BLOOD_TYPE,
+      </if>
+      <if test="dateOfBirth != null">
+        DATE_OF_BIRTH,
+      </if>
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="maritalStatus != null">
+        MARITAL_STATUS,
+      </if>
+      <if test="pasthis != null">
+        PASTHIS,
+      </if>
+      <if test="allergyhis != null">
+        ALLERGYHIS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="hosCode != null">
+        #{hosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null">
+        #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodType != null">
+        #{bloodType,jdbcType=VARCHAR},
+      </if>
+      <if test="dateOfBirth != null">
+        #{dateOfBirth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalStatus != null">
+        #{maritalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pasthis != null">
+        #{pasthis,jdbcType=VARCHAR},
+      </if>
+      <if test="allergyhis != null">
+        #{allergyhis,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dpm.db.common.example.TPatientInfoExample" resultType="java.lang.Long">
+    select count(*) from t_patient_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_patient_info
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hosCode != null">
+        HOS_CODE = #{record.hosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientId != null">
+        PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientName != null">
+        PATIENT_NAME = #{record.patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        SEX = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bloodType != null">
+        BLOOD_TYPE = #{record.bloodType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dateOfBirth != null">
+        DATE_OF_BIRTH = #{record.dateOfBirth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.idNo != null">
+        ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maritalStatus != null">
+        MARITAL_STATUS = #{record.maritalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pasthis != null">
+        PASTHIS = #{record.pasthis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allergyhis != null">
+        ALLERGYHIS = #{record.allergyhis,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_patient_info
+    set ID = #{record.id,jdbcType=VARCHAR},
+      HOS_CODE = #{record.hosCode,jdbcType=VARCHAR},
+      PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      PATIENT_NAME = #{record.patientName,jdbcType=VARCHAR},
+      SEX = #{record.sex,jdbcType=VARCHAR},
+      BLOOD_TYPE = #{record.bloodType,jdbcType=VARCHAR},
+      DATE_OF_BIRTH = #{record.dateOfBirth,jdbcType=TIMESTAMP},
+      ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      MARITAL_STATUS = #{record.maritalStatus,jdbcType=VARCHAR},
+      PASTHIS = #{record.pasthis,jdbcType=VARCHAR},
+      ALLERGYHIS = #{record.allergyhis,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dpm.resource.common.enity.TPatientInfo">
+    update t_patient_info
+    <set>
+      <if test="hosCode != null">
+        HOS_CODE = #{hosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="patientName != null">
+        PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="bloodType != null">
+        BLOOD_TYPE = #{bloodType,jdbcType=VARCHAR},
+      </if>
+      <if test="dateOfBirth != null">
+        DATE_OF_BIRTH = #{dateOfBirth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idNo != null">
+        ID_NO = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalStatus != null">
+        MARITAL_STATUS = #{maritalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pasthis != null">
+        PASTHIS = #{pasthis,jdbcType=VARCHAR},
+      </if>
+      <if test="allergyhis != null">
+        ALLERGYHIS = #{allergyhis,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dpm.resource.common.enity.TPatientInfo">
+    update t_patient_info
+    set HOS_CODE = #{hosCode,jdbcType=VARCHAR},
+      PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      BLOOD_TYPE = #{bloodType,jdbcType=VARCHAR},
+      DATE_OF_BIRTH = #{dateOfBirth,jdbcType=TIMESTAMP},
+      ID_NO = #{idNo,jdbcType=VARCHAR},
+      MARITAL_STATUS = #{maritalStatus,jdbcType=VARCHAR},
+      PASTHIS = #{pasthis,jdbcType=VARCHAR},
+      ALLERGYHIS = #{allergyhis,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

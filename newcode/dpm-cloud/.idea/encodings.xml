@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-db" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-resource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-sleuth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-unity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dpm-zuul" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,22 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8992
+spring:
+  application:
+    name: dpm-web
+  http:
+    multipart:
+      max-file-size: 2000Mb
+      max-request-size: 2000Mb
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    base-url: http://localhost:9411
+#multipart:
+#  enabled: true
+#  max-file-size: 500mb
+#  max-request-size: 500mb

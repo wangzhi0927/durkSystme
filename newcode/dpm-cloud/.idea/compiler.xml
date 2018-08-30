@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dpm-config" />
+        <module name="dpm-db" />
+        <module name="dpm-eureka" />
+        <module name="dpm-resource" />
+        <module name="dpm-sleuth" />
+        <module name="dpm-unity" />
+        <module name="dpm-web" />
+        <module name="dpm-zuul" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dpm-cloud" target="1.8" />
+      <module name="dpm-config" target="1.8" />
+      <module name="dpm-db" target="1.8" />
+      <module name="dpm-eureka" target="1.8" />
+      <module name="dpm-resource" target="1.8" />
+      <module name="dpm-sleuth" target="1.8" />
+      <module name="dpm-unity" target="1.8" />
+      <module name="dpm-web" target="1.8" />
+      <module name="dpm-zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dpm.db.common.mapper.TPatientTalkMapper">
+  <resultMap id="BaseResultMap" type="com.dpm.resource.common.enity.TPatientTalk">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TALK_NAME" jdbcType="VARCHAR" property="talkName" />
+    <result column="RELATIONSHIP_ID" jdbcType="VARCHAR" property="relationshipId" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="ID_FILE_PATH" jdbcType="VARCHAR" property="idFilePath" />
+    <result column="ID_FILE_NAME" jdbcType="VARCHAR" property="idFileName" />
+    <result column="RECORD_ID" jdbcType="VARCHAR" property="recordId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TALK_NAME, RELATIONSHIP_ID, SEX, AGE, ID_NO, ID_FILE_PATH, ID_FILE_NAME, RECORD_ID, 
+    CREATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.dpm.db.common.example.TPatientTalkExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_patient_talk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_patient_talk
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_patient_talk
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dpm.db.common.example.TPatientTalkExample">
+    delete from t_patient_talk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dpm.resource.common.enity.TPatientTalk">
+    insert into t_patient_talk (ID, TALK_NAME, RELATIONSHIP_ID, 
+      SEX, AGE, ID_NO, ID_FILE_PATH, 
+      ID_FILE_NAME, RECORD_ID, CREATE_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{talkName,jdbcType=VARCHAR}, #{relationshipId,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, #{idFilePath,jdbcType=VARCHAR}, 
+      #{idFileName,jdbcType=VARCHAR}, #{recordId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dpm.resource.common.enity.TPatientTalk">
+    insert into t_patient_talk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="talkName != null">
+        TALK_NAME,
+      </if>
+      <if test="relationshipId != null">
+        RELATIONSHIP_ID,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="age != null">
+        AGE,
+      </if>
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="idFilePath != null">
+        ID_FILE_PATH,
+      </if>
+      <if test="idFileName != null">
+        ID_FILE_NAME,
+      </if>
+      <if test="recordId != null">
+        RECORD_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="talkName != null">
+        #{talkName,jdbcType=VARCHAR},
+      </if>
+      <if test="relationshipId != null">
+        #{relationshipId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idFilePath != null">
+        #{idFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="idFileName != null">
+        #{idFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dpm.db.common.example.TPatientTalkExample" resultType="java.lang.Long">
+    select count(*) from t_patient_talk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_patient_talk
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.talkName != null">
+        TALK_NAME = #{record.talkName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relationshipId != null">
+        RELATIONSHIP_ID = #{record.relationshipId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        SEX = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null">
+        AGE = #{record.age,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idNo != null">
+        ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idFilePath != null">
+        ID_FILE_PATH = #{record.idFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idFileName != null">
+        ID_FILE_NAME = #{record.idFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordId != null">
+        RECORD_ID = #{record.recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_patient_talk
+    set ID = #{record.id,jdbcType=VARCHAR},
+      TALK_NAME = #{record.talkName,jdbcType=VARCHAR},
+      RELATIONSHIP_ID = #{record.relationshipId,jdbcType=VARCHAR},
+      SEX = #{record.sex,jdbcType=VARCHAR},
+      AGE = #{record.age,jdbcType=VARCHAR},
+      ID_NO = #{record.idNo,jdbcType=VARCHAR},
+      ID_FILE_PATH = #{record.idFilePath,jdbcType=VARCHAR},
+      ID_FILE_NAME = #{record.idFileName,jdbcType=VARCHAR},
+      RECORD_ID = #{record.recordId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dpm.resource.common.enity.TPatientTalk">
+    update t_patient_talk
+    <set>
+      <if test="talkName != null">
+        TALK_NAME = #{talkName,jdbcType=VARCHAR},
+      </if>
+      <if test="relationshipId != null">
+        RELATIONSHIP_ID = #{relationshipId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        AGE = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        ID_NO = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idFilePath != null">
+        ID_FILE_PATH = #{idFilePath,jdbcType=VARCHAR},
+      </if>
+      <if test="idFileName != null">
+        ID_FILE_NAME = #{idFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        RECORD_ID = #{recordId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dpm.resource.common.enity.TPatientTalk">
+    update t_patient_talk
+    set TALK_NAME = #{talkName,jdbcType=VARCHAR},
+      RELATIONSHIP_ID = #{relationshipId,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      ID_NO = #{idNo,jdbcType=VARCHAR},
+      ID_FILE_PATH = #{idFilePath,jdbcType=VARCHAR},
+      ID_FILE_NAME = #{idFileName,jdbcType=VARCHAR},
+      RECORD_ID = #{recordId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

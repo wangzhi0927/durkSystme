@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dpm.db.common.mapper.TModelDisplayParamMapper">
+  <resultMap id="BaseResultMap" type="com.dpm.resource.common.enity.TModelDisplayParam">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="RES_ID" jdbcType="VARCHAR" property="resId" />
+    <result column="DISPAY_RATE" jdbcType="VARCHAR" property="dispayRate" />
+    <result column="X" jdbcType="DECIMAL" property="x" />
+    <result column="Y" jdbcType="DECIMAL" property="y" />
+    <result column="Z" jdbcType="DECIMAL" property="z" />
+    <result column="ROTATIONX" jdbcType="DECIMAL" property="rotationx" />
+    <result column="ROTATIONY" jdbcType="DECIMAL" property="rotationy" />
+    <result column="ROTATIONZ" jdbcType="DECIMAL" property="rotationz" />
+    <result column="SCALE" jdbcType="DECIMAL" property="scale" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, NAME, RES_ID, DISPAY_RATE, X, Y, Z, ROTATIONX, ROTATIONY, ROTATIONZ, SCALE, DESCRIPTION
+  </sql>
+  <select id="selectByExample" parameterType="com.dpm.db.common.example.TModelDisplayParamExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_model_display_param
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_model_display_param
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_model_display_param
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dpm.db.common.example.TModelDisplayParamExample">
+    delete from t_model_display_param
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dpm.resource.common.enity.TModelDisplayParam">
+    insert into t_model_display_param (ID, NAME, RES_ID, 
+      DISPAY_RATE, X, Y, Z, 
+      ROTATIONX, ROTATIONY, ROTATIONZ, 
+      SCALE, DESCRIPTION)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{resId,jdbcType=VARCHAR}, 
+      #{dispayRate,jdbcType=VARCHAR}, #{x,jdbcType=DECIMAL}, #{y,jdbcType=DECIMAL}, #{z,jdbcType=DECIMAL}, 
+      #{rotationx,jdbcType=DECIMAL}, #{rotationy,jdbcType=DECIMAL}, #{rotationz,jdbcType=DECIMAL}, 
+      #{scale,jdbcType=DECIMAL}, #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dpm.resource.common.enity.TModelDisplayParam">
+    insert into t_model_display_param
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="resId != null">
+        RES_ID,
+      </if>
+      <if test="dispayRate != null">
+        DISPAY_RATE,
+      </if>
+      <if test="x != null">
+        X,
+      </if>
+      <if test="y != null">
+        Y,
+      </if>
+      <if test="z != null">
+        Z,
+      </if>
+      <if test="rotationx != null">
+        ROTATIONX,
+      </if>
+      <if test="rotationy != null">
+        ROTATIONY,
+      </if>
+      <if test="rotationz != null">
+        ROTATIONZ,
+      </if>
+      <if test="scale != null">
+        SCALE,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null">
+        #{resId,jdbcType=VARCHAR},
+      </if>
+      <if test="dispayRate != null">
+        #{dispayRate,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null">
+        #{x,jdbcType=DECIMAL},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=DECIMAL},
+      </if>
+      <if test="z != null">
+        #{z,jdbcType=DECIMAL},
+      </if>
+      <if test="rotationx != null">
+        #{rotationx,jdbcType=DECIMAL},
+      </if>
+      <if test="rotationy != null">
+        #{rotationy,jdbcType=DECIMAL},
+      </if>
+      <if test="rotationz != null">
+        #{rotationz,jdbcType=DECIMAL},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dpm.db.common.example.TModelDisplayParamExample" resultType="java.lang.Long">
+    select count(*) from t_model_display_param
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_model_display_param
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resId != null">
+        RES_ID = #{record.resId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dispayRate != null">
+        DISPAY_RATE = #{record.dispayRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.x != null">
+        X = #{record.x,jdbcType=DECIMAL},
+      </if>
+      <if test="record.y != null">
+        Y = #{record.y,jdbcType=DECIMAL},
+      </if>
+      <if test="record.z != null">
+        Z = #{record.z,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rotationx != null">
+        ROTATIONX = #{record.rotationx,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rotationy != null">
+        ROTATIONY = #{record.rotationy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rotationz != null">
+        ROTATIONZ = #{record.rotationz,jdbcType=DECIMAL},
+      </if>
+      <if test="record.scale != null">
+        SCALE = #{record.scale,jdbcType=DECIMAL},
+      </if>
+      <if test="record.description != null">
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_model_display_param
+    set ID = #{record.id,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      RES_ID = #{record.resId,jdbcType=VARCHAR},
+      DISPAY_RATE = #{record.dispayRate,jdbcType=VARCHAR},
+      X = #{record.x,jdbcType=DECIMAL},
+      Y = #{record.y,jdbcType=DECIMAL},
+      Z = #{record.z,jdbcType=DECIMAL},
+      ROTATIONX = #{record.rotationx,jdbcType=DECIMAL},
+      ROTATIONY = #{record.rotationy,jdbcType=DECIMAL},
+      ROTATIONZ = #{record.rotationz,jdbcType=DECIMAL},
+      SCALE = #{record.scale,jdbcType=DECIMAL},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dpm.resource.common.enity.TModelDisplayParam">
+    update t_model_display_param
+    <set>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null">
+        RES_ID = #{resId,jdbcType=VARCHAR},
+      </if>
+      <if test="dispayRate != null">
+        DISPAY_RATE = #{dispayRate,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null">
+        X = #{x,jdbcType=DECIMAL},
+      </if>
+      <if test="y != null">
+        Y = #{y,jdbcType=DECIMAL},
+      </if>
+      <if test="z != null">
+        Z = #{z,jdbcType=DECIMAL},
+      </if>
+      <if test="rotationx != null">
+        ROTATIONX = #{rotationx,jdbcType=DECIMAL},
+      </if>
+      <if test="rotationy != null">
+        ROTATIONY = #{rotationy,jdbcType=DECIMAL},
+      </if>
+      <if test="rotationz != null">
+        ROTATIONZ = #{rotationz,jdbcType=DECIMAL},
+      </if>
+      <if test="scale != null">
+        SCALE = #{scale,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dpm.resource.common.enity.TModelDisplayParam">
+    update t_model_display_param
+    set NAME = #{name,jdbcType=VARCHAR},
+      RES_ID = #{resId,jdbcType=VARCHAR},
+      DISPAY_RATE = #{dispayRate,jdbcType=VARCHAR},
+      X = #{x,jdbcType=DECIMAL},
+      Y = #{y,jdbcType=DECIMAL},
+      Z = #{z,jdbcType=DECIMAL},
+      ROTATIONX = #{rotationx,jdbcType=DECIMAL},
+      ROTATIONY = #{rotationy,jdbcType=DECIMAL},
+      ROTATIONZ = #{rotationz,jdbcType=DECIMAL},
+      SCALE = #{scale,jdbcType=DECIMAL},
+      DESCRIPTION = #{description,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

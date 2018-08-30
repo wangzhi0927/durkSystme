@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dpm.db.common.mapper.TRecordInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dpm.resource.common.enity.TRecordInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HOS_CODE" jdbcType="VARCHAR" property="hosCode" />
+    <result column="PATIENT_ID" jdbcType="VARCHAR" property="patientId" />
+    <result column="INP_NO" jdbcType="VARCHAR" property="inpNo" />
+    <result column="INP_TIMES" jdbcType="VARCHAR" property="inpTimes" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="WARD_CODE" jdbcType="VARCHAR" property="wardCode" />
+    <result column="WARD_NAME" jdbcType="VARCHAR" property="wardName" />
+    <result column="BED_NO" jdbcType="VARCHAR" property="bedNo" />
+    <result column="DIAG_NO" jdbcType="VARCHAR" property="diagNo" />
+    <result column="DIAG_NAME" jdbcType="VARCHAR" property="diagName" />
+    <result column="TALK_TYPE" jdbcType="VARCHAR" property="talkType" />
+    <result column="NARCOTIC_ID" jdbcType="VARCHAR" property="narcoticId" />
+    <result column="OPERATION" jdbcType="VARCHAR" property="operation" />
+    <result column="RECORD_NAME" jdbcType="VARCHAR" property="recordName" />
+    <result column="FOLD_PATH" jdbcType="VARCHAR" property="foldPath" />
+    <result column="UPLOAD_TIME" jdbcType="TIMESTAMP" property="uploadTime" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="TALK_TIME" jdbcType="INTEGER" property="talkTime" />
+    <result column="ISFINISHED" jdbcType="VARCHAR" property="isfinished" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <resultMap id="RecordResultMap" type="com.dpm.resource.common.enity.record.RecordInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HOS_CODE" jdbcType="VARCHAR" property="hosCode" />
+    <result column="PATIENT_ID" jdbcType="VARCHAR" property="patientId" />
+    <result column="INP_NO" jdbcType="VARCHAR" property="inpNo" />
+    <result column="INP_TIMES" jdbcType="VARCHAR" property="inpTimes" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="WARD_CODE" jdbcType="VARCHAR" property="wardCode" />
+    <result column="WARD_NAME" jdbcType="VARCHAR" property="wardName" />
+    <result column="BED_NO" jdbcType="VARCHAR" property="bedNo" />
+    <result column="DIAG_NO" jdbcType="VARCHAR" property="diagNo" />
+    <result column="DIAG_NAME" jdbcType="VARCHAR" property="diagName" />
+    <result column="TALK_TYPE" jdbcType="VARCHAR" property="talkType" />
+    <result column="NARCOTIC_ID" jdbcType="VARCHAR" property="narcoticId" />
+    <result column="OPERATION" jdbcType="VARCHAR" property="operation" />
+    <result column="RECORD_NAME" jdbcType="VARCHAR" property="recordName" />
+    <result column="FOLD_PATH" jdbcType="VARCHAR" property="foldPath" />
+    <result column="UPLOAD_TIME" jdbcType="TIMESTAMP" property="uploadTime" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="TALK_TIME" jdbcType="INTEGER" property="talkTime" />
+    <result column="ISFINISHED" jdbcType="VARCHAR" property="isfinished" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <association property="hospitalInfo" javaType="com.dpm.resource.common.enity.THospitalInfo" resultMap="RecHosResultMap"/>
+  </resultMap>
+  <resultMap id="RecHosResultMap" type="com.dpm.resource.common.enity.THospitalInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="H_HOS_CODE" jdbcType="VARCHAR" property="hosCode" />
+    <result column="H_NAME" jdbcType="VARCHAR" property="name" />
+    <result column="H_HOSP_LOGO" jdbcType="VARCHAR" property="hospLogo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Example_Where_Clause_alias">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and a.${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and a.${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and a.${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, HOS_CODE, PATIENT_ID, INP_NO, INP_TIMES, AGE, SEX, DEPT_CODE, DEPT_NAME, WARD_CODE, 
+    WARD_NAME, BED_NO, DIAG_NO, DIAG_NAME, TALK_TYPE, NARCOTIC_ID, OPERATION, RECORD_NAME, 
+    FOLD_PATH, UPLOAD_TIME, USER_ID, TALK_TIME, ISFINISHED, CREATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.dpm.db.common.example.TRecordInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_record_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != 0">
+      limit ${limit}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_record_info
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_record_info
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dpm.db.common.example.TRecordInfoExample">
+    delete from t_record_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dpm.resource.common.enity.TRecordInfo">
+    insert into t_record_info (ID, HOS_CODE, PATIENT_ID, 
+      INP_NO, INP_TIMES, AGE, 
+      SEX, DEPT_CODE, DEPT_NAME, 
+      WARD_CODE, WARD_NAME, BED_NO, 
+      DIAG_NO, DIAG_NAME, TALK_TYPE, 
+      NARCOTIC_ID, OPERATION, RECORD_NAME, 
+      FOLD_PATH, UPLOAD_TIME, USER_ID, 
+      TALK_TIME, ISFINISHED, CREATE_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{hosCode,jdbcType=VARCHAR}, #{patientId,jdbcType=VARCHAR}, 
+      #{inpNo,jdbcType=VARCHAR}, #{inpTimes,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{wardCode,jdbcType=VARCHAR}, #{wardName,jdbcType=VARCHAR}, #{bedNo,jdbcType=VARCHAR}, 
+      #{diagNo,jdbcType=VARCHAR}, #{diagName,jdbcType=VARCHAR}, #{talkType,jdbcType=VARCHAR}, 
+      #{narcoticId,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, #{recordName,jdbcType=VARCHAR}, 
+      #{foldPath,jdbcType=VARCHAR}, #{uploadTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=VARCHAR}, 
+      #{talkTime,jdbcType=INTEGER}, #{isfinished,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dpm.resource.common.enity.TRecordInfo">
+    insert into t_record_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="hosCode != null">
+        HOS_CODE,
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID,
+      </if>
+      <if test="inpNo != null">
+        INP_NO,
+      </if>
+      <if test="inpTimes != null">
+        INP_TIMES,
+      </if>
+      <if test="age != null">
+        AGE,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="deptCode != null">
+        DEPT_CODE,
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME,
+      </if>
+      <if test="wardCode != null">
+        WARD_CODE,
+      </if>
+      <if test="wardName != null">
+        WARD_NAME,
+      </if>
+      <if test="bedNo != null">
+        BED_NO,
+      </if>
+      <if test="diagNo != null">
+        DIAG_NO,
+      </if>
+      <if test="diagName != null">
+        DIAG_NAME,
+      </if>
+      <if test="talkType != null">
+        TALK_TYPE,
+      </if>
+      <if test="narcoticId != null">
+        NARCOTIC_ID,
+      </if>
+      <if test="operation != null">
+        OPERATION,
+      </if>
+      <if test="recordName != null">
+        RECORD_NAME,
+      </if>
+      <if test="foldPath != null">
+        FOLD_PATH,
+      </if>
+      <if test="uploadTime != null">
+        UPLOAD_TIME,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="talkTime != null">
+        TALK_TIME,
+      </if>
+      <if test="isfinished != null">
+        ISFINISHED,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="hosCode != null">
+        #{hosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="inpNo != null">
+        #{inpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inpTimes != null">
+        #{inpTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null">
+        #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="wardCode != null">
+        #{wardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="wardName != null">
+        #{wardName,jdbcType=VARCHAR},
+      </if>
+      <if test="bedNo != null">
+        #{bedNo,jdbcType=VARCHAR},
+      </if>
+      <if test="diagNo != null">
+        #{diagNo,jdbcType=VARCHAR},
+      </if>
+      <if test="diagName != null">
+        #{diagName,jdbcType=VARCHAR},
+      </if>
+      <if test="talkType != null">
+        #{talkType,jdbcType=VARCHAR},
+      </if>
+      <if test="narcoticId != null">
+        #{narcoticId,jdbcType=VARCHAR},
+      </if>
+      <if test="operation != null">
+        #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="recordName != null">
+        #{recordName,jdbcType=VARCHAR},
+      </if>
+      <if test="foldPath != null">
+        #{foldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="talkTime != null">
+        #{talkTime,jdbcType=INTEGER},
+      </if>
+      <if test="isfinished != null">
+        #{isfinished,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dpm.db.common.example.TRecordInfoExample" resultType="java.lang.Long">
+    select count(*) from t_record_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_record_info
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hosCode != null">
+        HOS_CODE = #{record.hosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.patientId != null">
+        PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inpNo != null">
+        INP_NO = #{record.inpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inpTimes != null">
+        INP_TIMES = #{record.inpTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null">
+        AGE = #{record.age,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        SEX = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptCode != null">
+        DEPT_CODE = #{record.deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptName != null">
+        DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wardCode != null">
+        WARD_CODE = #{record.wardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wardName != null">
+        WARD_NAME = #{record.wardName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bedNo != null">
+        BED_NO = #{record.bedNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagNo != null">
+        DIAG_NO = #{record.diagNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagName != null">
+        DIAG_NAME = #{record.diagName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.talkType != null">
+        TALK_TYPE = #{record.talkType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.narcoticId != null">
+        NARCOTIC_ID = #{record.narcoticId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operation != null">
+        OPERATION = #{record.operation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordName != null">
+        RECORD_NAME = #{record.recordName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.foldPath != null">
+        FOLD_PATH = #{record.foldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uploadTime != null">
+        UPLOAD_TIME = #{record.uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.talkTime != null">
+        TALK_TIME = #{record.talkTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.isfinished != null">
+        ISFINISHED = #{record.isfinished,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_record_info
+    set ID = #{record.id,jdbcType=VARCHAR},
+      HOS_CODE = #{record.hosCode,jdbcType=VARCHAR},
+      PATIENT_ID = #{record.patientId,jdbcType=VARCHAR},
+      INP_NO = #{record.inpNo,jdbcType=VARCHAR},
+      INP_TIMES = #{record.inpTimes,jdbcType=VARCHAR},
+      AGE = #{record.age,jdbcType=VARCHAR},
+      SEX = #{record.sex,jdbcType=VARCHAR},
+      DEPT_CODE = #{record.deptCode,jdbcType=VARCHAR},
+      DEPT_NAME = #{record.deptName,jdbcType=VARCHAR},
+      WARD_CODE = #{record.wardCode,jdbcType=VARCHAR},
+      WARD_NAME = #{record.wardName,jdbcType=VARCHAR},
+      BED_NO = #{record.bedNo,jdbcType=VARCHAR},
+      DIAG_NO = #{record.diagNo,jdbcType=VARCHAR},
+      DIAG_NAME = #{record.diagName,jdbcType=VARCHAR},
+      TALK_TYPE = #{record.talkType,jdbcType=VARCHAR},
+      NARCOTIC_ID = #{record.narcoticId,jdbcType=VARCHAR},
+      OPERATION = #{record.operation,jdbcType=VARCHAR},
+      RECORD_NAME = #{record.recordName,jdbcType=VARCHAR},
+      FOLD_PATH = #{record.foldPath,jdbcType=VARCHAR},
+      UPLOAD_TIME = #{record.uploadTime,jdbcType=TIMESTAMP},
+      USER_ID = #{record.userId,jdbcType=VARCHAR},
+      TALK_TIME = #{record.talkTime,jdbcType=INTEGER},
+      ISFINISHED = #{record.isfinished,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dpm.resource.common.enity.TRecordInfo">
+    update t_record_info
+    <set>
+      <if test="hosCode != null">
+        HOS_CODE = #{hosCode,jdbcType=VARCHAR},
+      </if>
+      <if test="patientId != null">
+        PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      </if>
+      <if test="inpNo != null">
+        INP_NO = #{inpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inpTimes != null">
+        INP_TIMES = #{inpTimes,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        AGE = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null">
+        DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="wardCode != null">
+        WARD_CODE = #{wardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="wardName != null">
+        WARD_NAME = #{wardName,jdbcType=VARCHAR},
+      </if>
+      <if test="bedNo != null">
+        BED_NO = #{bedNo,jdbcType=VARCHAR},
+      </if>
+      <if test="diagNo != null">
+        DIAG_NO = #{diagNo,jdbcType=VARCHAR},
+      </if>
+      <if test="diagName != null">
+        DIAG_NAME = #{diagName,jdbcType=VARCHAR},
+      </if>
+      <if test="talkType != null">
+        TALK_TYPE = #{talkType,jdbcType=VARCHAR},
+      </if>
+      <if test="narcoticId != null">
+        NARCOTIC_ID = #{narcoticId,jdbcType=VARCHAR},
+      </if>
+      <if test="operation != null">
+        OPERATION = #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="recordName != null">
+        RECORD_NAME = #{recordName,jdbcType=VARCHAR},
+      </if>
+      <if test="foldPath != null">
+        FOLD_PATH = #{foldPath,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        UPLOAD_TIME = #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="talkTime != null">
+        TALK_TIME = #{talkTime,jdbcType=INTEGER},
+      </if>
+      <if test="isfinished != null">
+        ISFINISHED = #{isfinished,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dpm.resource.common.enity.TRecordInfo">
+    update t_record_info
+    set HOS_CODE = #{hosCode,jdbcType=VARCHAR},
+      PATIENT_ID = #{patientId,jdbcType=VARCHAR},
+      INP_NO = #{inpNo,jdbcType=VARCHAR},
+      INP_TIMES = #{inpTimes,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+      DEPT_NAME = #{deptName,jdbcType=VARCHAR},
+      WARD_CODE = #{wardCode,jdbcType=VARCHAR},
+      WARD_NAME = #{wardName,jdbcType=VARCHAR},
+      BED_NO = #{bedNo,jdbcType=VARCHAR},
+      DIAG_NO = #{diagNo,jdbcType=VARCHAR},
+      DIAG_NAME = #{diagName,jdbcType=VARCHAR},
+      TALK_TYPE = #{talkType,jdbcType=VARCHAR},
+      NARCOTIC_ID = #{narcoticId,jdbcType=VARCHAR},
+      OPERATION = #{operation,jdbcType=VARCHAR},
+      RECORD_NAME = #{recordName,jdbcType=VARCHAR},
+      FOLD_PATH = #{foldPath,jdbcType=VARCHAR},
+      UPLOAD_TIME = #{uploadTime,jdbcType=TIMESTAMP},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      TALK_TIME = #{talkTime,jdbcType=INTEGER},
+      ISFINISHED = #{isfinished,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectRecHosByExample" parameterType="com.dpm.db.common.example.TRecordInfoExample" resultMap="RecordResultMap">
+    select
+    	a.*,b.NAME H_NAME,b.ID H_ID
+    from t_record_info a left join t_hospital_info b on a.hos_code = b.hos_code
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause_alias" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>
